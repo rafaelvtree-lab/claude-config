@@ -28,11 +28,14 @@ while [ $# -gt 0 ]; do
   shift
 done
 
+PY="$(command -v python3 || command -v python || true)"
+[ -n "$PY" ] || { echo "[claude-config] python3/python not found" >&2; exit 1; }
+
 log() { [ "$QUIET" = 1 ] || echo "[claude-config] $*"; }
 
 # merge_hooks SRC_JSON DEST_JSON: add our hook entries to DEST without duplicating or dropping others.
 merge_hooks() {
-  python3 -I - "$1" "$2" <<'PY'
+  "$PY" -I - "$1" "$2" <<'PY'
 import json, os, sys
 src, dest = sys.argv[1], sys.argv[2]
 new = json.load(open(src))
@@ -95,7 +98,7 @@ chmod +x "$CLAUDE_DIR"/hooks/*.py 2>/dev/null || true
 mv "$MANIFEST.tmp" "$MANIFEST"
 
 # Global CLAUDE.md: replace only our marked block, keep anything else the user wrote.
-python3 -I - "$REPO/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md" <<'PY'
+"$PY" -I - "$REPO/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md" <<'PY'
 import os, re, sys
 src, dest = sys.argv[1], sys.argv[2]
 start, end = "<!-- claude-config:start -->", "<!-- claude-config:end -->"

@@ -51,7 +51,7 @@ claude.ai/code → Umgebung auswählen → Einstellungen → **Setup script** �
 ```
 Danach `.claude/settings.json` committen.
 
-### 3. Lokal (Mac/Linux)
+### 3. Lokal (Windows: in **Git Bash**; Mac/Linux: Terminal)
 Altes ECC zuerst entfernen (siehe unten), dann:
 ```bash
 git clone https://github.com/rafaelvtree-lab/claude-config.git ~/.claude-config
