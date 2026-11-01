@@ -5,21 +5,24 @@ Es funktioniert **lokal und in Cloud-Sessions** (claude.ai/code, App, `claude --
 
 | | ECC komplett | claude-config |
 |---|---|---|
-| Agents | 71 | **8** |
-| Skills | 314 | **14** |
+| Agents | 71 | **14** |
+| Skills | 314 | **45** |
 | Commands | 98 | **1** |
 | Hooks | 27 Node-Hooks pro Tool-Call | **3** kleine Python-Hooks |
 | Regeln | 23 Ordner | 1 kompakte `CLAUDE.md` mit klarer Zuordnung, wann welcher Agent/Skill genutzt wird |
 
 ## Inhalt
 
-**Agents:** `planner`, `code-reviewer`, `python-reviewer`, `security-reviewer`, `tdd-guide`,
-`silent-failure-hunter`, `code-simplifier`, `mle-reviewer`
+**Agents (14):**
+- Code und Qualität: `planner`, `code-reviewer`, `python-reviewer`, `typescript-reviewer`, `react-reviewer`, `security-reviewer`, `tdd-guide`, `silent-failure-hunter`, `code-simplifier`, `build-error-resolver`, `database-reviewer`, `mle-reviewer`
+- Marketing: `marketing-agent`, `seo-specialist`
 
-**Skills:** `python-patterns`, `python-testing`, `tdd-workflow`, `verification-loop`,
-`llm-trading-agent-security`, `security-review`, `search-first`, `error-handling`,
-`cost-aware-llm-pipeline`, `prompt-caching-strategy`, `scientific-thinking-literature-review`,
-`market-research`, `latency-critical-systems`, `mle-workflow`
+**Skills (45):**
+- Python und Qualität: `python-patterns`, `python-testing`, `tdd-workflow`, `verification-loop`, `error-handling`, `search-first`, `security-review`
+- Trading und Research: `llm-trading-agent-security`, `latency-critical-systems`, `scientific-thinking-literature-review`, `market-research`, `mle-workflow`, `cost-aware-llm-pipeline`, `prompt-caching-strategy`
+- Web-Apps (Vibe Coding): `frontend-patterns`, `react-patterns`, `typescript-patterns`, `nextjs-turbopack`, `frontend-design-direction`, `make-interfaces-feel-better`, `design-system`, `api-design`, `backend-patterns`, `fastapi-patterns`, `postgres-patterns`, `docker-patterns`, `deployment-patterns`, `e2e-testing`, `codebase-onboarding`
+- Marketing und Business: `marketing-campaign`, `content-engine`, `article-writing`, `brand-voice`, `seo`, `competitive-platform-analysis`, `benchmark-methodology`, `competitive-report-structure`, `product-lens`, `product-capability`, `investor-materials`, `investor-outreach`
+- Daten und Reporting: `dashboard-builder`, `data-scraper-agent`, `regex-vs-llm-structured-text`, `frontend-slides`. Für Datenanalyse, SQL, Diagramme und KPI-Dashboards gibt es zusätzlich das Daten-Plugin aus deinem claude.ai-Account (`data:*`), das lokal und in der Cloud schon geladen wird.
 
 **Command:** `/python-review`. Für `/code-review`, `/security-review` und `/simplify` gibt es in Claude Code bereits eingebaute Versionen.
 

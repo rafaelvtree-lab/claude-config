@@ -1,7 +1,9 @@
 # Rafael's global setup (claude-config, trimmed from ECC)
 
-Reply in the user's language (usually German). Main work: Python trading/quant systems
-(QuantConnect/LEAN, Alpaca, LLM trading agents, backtests, risk dashboards, research agents).
+Reply in the user's language (usually German). Rafael is learning to code: explain briefly what and why.
+Work: Python trading/quant systems (Alpaca, LLM trading agents, backtests, risk dashboards, research
+agents) and, at a startup, web apps ("vibe coding"), marketing, dashboards, reporting and data analysis.
+Project CLAUDE.md rules take precedence over this file.
 
 ## Use these agents and skills (they are installed for you, so use them)
 
@@ -25,6 +27,30 @@ fix needs none of this; a new feature or a strategy change does.
 | Code calls an LLM API (cost, routing, caching) | `cost-aware-llm-pipeline` + `prompt-caching-strategy` skills |
 | Live data feeds, execution latency, realtime dashboards | `latency-critical-systems` skill |
 | Designing error handling | `error-handling` skill |
+
+**Startup work: web apps, marketing, data, reporting**
+
+| Situation | Use |
+|---|---|
+| TypeScript/JavaScript changed | `typescript-reviewer` agent (+ `react-reviewer` for React/JSX) |
+| Build or type errors | `build-error-resolver` agent |
+| SQL, schema, migrations (Postgres) | `database-reviewer` agent / `postgres-patterns` skill |
+| Building React/Next.js frontends | `frontend-patterns`, `react-patterns`, `typescript-patterns`, `nextjs-turbopack` skills |
+| UI should look good (landing page, app, dashboard) | `frontend-design-direction`, `make-interfaces-feel-better`, `design-system` skills |
+| APIs and backends | `api-design`, `backend-patterns` (Node), `fastapi-patterns` (Python) skills |
+| Shipping: Docker, CI/CD, deploy | `docker-patterns`, `deployment-patterns` skills; browser tests via `e2e-testing` |
+| Joining an unfamiliar codebase | `codebase-onboarding` skill |
+| Campaigns, landing-page copy, email sequences | `marketing-agent` / `marketing-campaign` skill |
+| Social posts, blog articles, newsletters | `content-engine`, `article-writing`, `brand-voice` skills |
+| SEO audit or content plan | `seo-specialist` agent / `seo` skill |
+| Competitor analysis | `competitive-platform-analysis` -> `benchmark-methodology` -> `competitive-report-structure` skills |
+| Is this feature/product worth building? PRD -> plan | `product-lens`, `product-capability` skills |
+| Pitch deck, investor memo, investor emails | `investor-materials`, `investor-outreach` skills |
+| Data analysis, SQL, charts, KPI dashboards, reports | the `data:*` skills (analyze, write-query, create-viz, build-dashboard, statistical-analysis, validate-data) + `dataviz` |
+| Monitoring dashboards (Grafana etc.) | `dashboard-builder` skill |
+| Collecting data from websites on a schedule | `data-scraper-agent` skill |
+| Extracting fields from invoices, forms, PDFs | `regex-vs-llm-structured-text` skill |
+| Presentation as HTML slides | `frontend-slides` skill |
 
 Run independent reviewers in parallel. Subagents cost tokens: one well-chosen reviewer beats three overlapping ones.
 
