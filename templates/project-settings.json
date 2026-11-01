@@ -1,0 +1,49 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$HOME/.claude/hooks/guard_bash.py\"; [ ! -f \"$f\" ] || python3 \"$f\"",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$HOME/.claude/hooks/secret_scan.py\"; [ ! -f \"$f\" ] || python3 \"$f\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$HOME/.claude/hooks/py_check.py\"; [ ! -f \"$f\" ] || python3 \"$f\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ \"$CLAUDE_CODE_REMOTE\" = \"true\" ]; then (d=\"$HOME/.claude-config\"; { [ -d \"$d/.git\" ] && git -C \"$d\" pull -q --ff-only; } || git clone -q --depth 1 https://github.com/rafaelvtree-lab/claude-config.git \"$d\"; bash \"$d/install.sh\" --cloud --quiet) >/dev/null 2>&1 & fi; exit 0",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
